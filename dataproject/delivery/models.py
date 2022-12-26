@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib import admin
 
 class deliverydatabase(models.Model):
+    class Meta():
+        permissions = (("view_status", "can view staff details."),
+                 ("view_address", "can view customer details"),
+        )
     username_primary_key = models.CharField(max_length=30, help_text="User id must be unique", primary_key=True,unique=True)
     address= models.CharField(max_length=30)
     phone_number = models.IntegerField()
